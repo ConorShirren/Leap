@@ -65,22 +65,19 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',
-    'http://localhost:80',
     'http://localhost:8081',
-    'http://localhost:8082',
-    'http://0.0.0.0'
 )
 
 ROOT_URLCONF = 'leap.urls'
 
 SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        "Auth Token eg [Bearer (JWT) ]": {
-            "type": "apiKey",
-            "name": "Authorization",
-            "in": "header"
-        }
-    }
+    # 'SECURITY_DEFINITIONS': {
+    #     "Auth Token eg [Bearer (JWT) ]": {
+    #         "type": "apiKey",
+    #         "name": "Authorization",
+    #         "in": "header"
+    #     }
+    # }
 }
 
 
