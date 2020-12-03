@@ -46,6 +46,7 @@ PREREQ_APPS = [
 
 PROJECT_APPS = [
     # applications
+    'engine.apps.EngineConfig',
 ]
 
 INSTALLED_APPS = PREREQ_APPS + PROJECT_APPS
