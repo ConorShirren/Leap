@@ -1,0 +1,5 @@
+django-cors-headers
+djangorestframework==3.11
+drf-yasg==1.17.1 
+psycopg2
+djangorestframework_simplejwt==4.5.0
