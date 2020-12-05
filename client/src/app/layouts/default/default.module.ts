@@ -20,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatInputModule,
     FormsModule,
     NgxSpinnerModule,
+    ChartsModule
   ],
   providers: [
     DashboardService
