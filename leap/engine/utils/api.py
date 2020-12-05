@@ -7,6 +7,14 @@ import os
 import time
 import webbrowser
 import sys
+from selenium import webdriver
+import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+import re
+
 # http://www.strava.com/oauth/authorize?client_id=57478&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=profile:read_all,activity:read_all
 class StravaApi:
 
@@ -21,13 +29,23 @@ class StravaApi:
         # Prepare the authorization code GET request and open it in a
         # browser window
         authorization_request = Request('GET', base_address, params=params).prepare()
-        webbrowser.open(authorization_request.url)
-        # webbrowser.open(auth.url)
-        # TODO: Get the authorization code back from the response
-        # automatically. Currently, the code must be manually copied from
-        # the URL response in the browser window.
-        auth_code = str(input("Enter authorization code: "))
-
+        options = webdriver.ChromeOptions()
+        options.headless = True
+        options.add_argument('--ignore-certificate-errors')
+        options.add_argument("--test-type")
+        driver = webdriver.Chrome(chrome_options=options, executable_path="/usr/local/bin/chromedriver")
+        driver.get(authorization_request.url)
+        driver.find_element_by_id("email").send_keys("email_placeholder")
+        driver.find_element_by_id("password").send_keys("pwd_placeholder")
+        submit_button = driver.find_element_by_id("login-button")
+        submit_button.click()
+        WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.ID, 'authorize')))
+        auth_button = driver.find_element_by_id("authorize")
+        auth_button.click()
+        WebDriverWait(driver, 3)
+        authUrl = driver.current_url
+        auth_code = re.search("(?<=code=)(.*?)(?=\&)", authUrl).group(0)
+        print(auth_code)
         # Make Strava auth API call
         response = requests.post(
             url='https://www.strava.com/oauth/token',

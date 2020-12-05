@@ -6,23 +6,18 @@ import requests
 from datetime import datetime
 # Import DatasetUtils
 from .utils import datasetutils as utils
+from .utils import api as _api
 # Create your views here.
 from .serializers import IndicatorSerializer
+
 
 
 class IndicatorView(GenericAPIView):
     serializer_class = IndicatorSerializer
 
     def get(self, request):
-        serializer = IndicatorSerializer(data=request.data)
-        if serializer.is_valid():
-            print('true')
-        period = int(request.GET.get('period'))
-        symbol = request.GET.get('symbol')
-        limit = request.GET.get('limit')
-        interval = request.GET.get('interval')
-        indicator = request.GET.get('indicator')
-        data_set_utils = utils.DataSetUtils(interval, limit, period, symbol)
-        data = data_set_utils.get_indicator(indicator)
+        ## Get the tokens from file to connect to Strava
+        stravaApi = _api.StravaApi()
+        data = stravaApi.GetActivities()
         return Response(data, status=status.HTTP_201_CREATED)
 
