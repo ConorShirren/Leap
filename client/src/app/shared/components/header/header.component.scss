@@ -1,0 +1,14 @@
+ul li {
+  list-style: none;
+}
+
+.backdropBackground {
+  filter: blur(20px);
+  background-color: black;
+  opacity: 0.7 !important;
+}
+
+.mat-raised-button.mat-green {
+  background-color: #589636;//06a94d;
+  color: white;
+}

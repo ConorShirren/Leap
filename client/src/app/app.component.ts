@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
+import { ColorSchemeService } from 'src/app/core/services/color-scheme.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'client';
+    title = 'Leap Perforamce Analysis Engine';
+
+    constructor(private colorSchemeService: ColorSchemeService) {
+        // Load Color Scheme
+        this.colorSchemeService.load();
+    }
+
 }

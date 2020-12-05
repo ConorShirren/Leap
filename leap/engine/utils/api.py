@@ -19,6 +19,11 @@ import re
 class StravaApi:
 
     def __init__(self):
+        self = self
+
+    def AuthenticateApi(self, email, password):
+        # self.email = email
+        # self.password = password
         base_address = 'https://www.strava.com/oauth/authorize'
         params = ({'client_id': 57478,
                 'redirect_uri': 'http://localhost',
@@ -35,8 +40,8 @@ class StravaApi:
         options.add_argument("--test-type")
         driver = webdriver.Chrome(chrome_options=options, executable_path="/usr/local/bin/chromedriver")
         driver.get(authorization_request.url)
-        driver.find_element_by_id("email").send_keys("email_placeholder")
-        driver.find_element_by_id("password").send_keys("pwd_placeholder")
+        driver.find_element_by_id("email").send_keys(email)
+        driver.find_element_by_id("password").send_keys(password)
         submit_button = driver.find_element_by_id("login-button")
         submit_button.click()
         WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.ID, 'authorize')))
@@ -65,7 +70,6 @@ class StravaApi:
         with open('strava_tokens.json') as check:
             data = json.load(check)
 
-    
     def GetActivities(self):
         with open('strava_tokens.json') as json_file:
             strava_tokens = json.load(json_file)

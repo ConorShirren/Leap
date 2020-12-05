@@ -1,0 +1,52 @@
+<ngx-spinner bdColor="rgba(156,121,215,0.4)" size="large" color="#fff" type="square-jelly-box" fullScreen="false">
+    <p style="font-size: 25px; color: white; font-weight: bolder">Running Analysis Engine...</p>
+</ngx-spinner>
+<div *ngIf="!this.loggedIn">
+    <mat-card>
+
+        <div style="text-align: center">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="this.email" />
+                <mat-icon matSuffix>alternate_email</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="this.password" />
+                <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions style="text-align: center">
+            <button mat-raised-button color="primary" (click)="onLogin()" cdkFocusInitial>
+                Login
+            </button>
+        </div>
+    
+    </mat-card>
+</div>
+
+<br>
+<mat-card>
+    {{this.activities.start_date_local}}
+</mat-card>
+<br>
+
+<mat-card>
+    {{this.activities.type}}
+</mat-card>
+<br>
+
+<mat-card>
+    {{this.activities.distance}}
+</mat-card>
+<br>
+
+<mat-card>
+    {{this.activities.elapsed_time}}
+</mat-card>
+<br>
+
+<mat-card>
+    {{this.activities.total_elevation_gain}}
+</mat-card>

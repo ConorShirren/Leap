@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import IndicatorView
+from .views import ActivitiesView, AuthenticationView
 
 
 urlpatterns = [
-    path('indicator', IndicatorView.as_view()),
+    path('activities', ActivitiesView.as_view()),
+    path('authenticate', AuthenticationView.as_view()),
+
 ]

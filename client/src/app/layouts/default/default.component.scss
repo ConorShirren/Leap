@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+mat-drawer {
+  width: 155px;
+}
+#matdrawer.open {
+  width: 155px;
+}
+#matdrawer.closed {
+  width: 155;//63px;
+}
+
+mat-drawer-container {
+  height: 100%;
+}
+
+mat-drawer-content {
+  padding: 10px;
+}
+
+.backdropBackground {
+  filter: blur(20px);
+  background-color: black;
+  opacity: 0.7 !important;
+}
