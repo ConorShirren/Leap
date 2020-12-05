@@ -21,6 +21,27 @@ class ActivitiesView(GenericAPIView):
         data = stravaApi.GetActivities()
         return Response(data, status=status.HTTP_201_CREATED)
 
+class ActivityView(GenericAPIView):
+    serializer_class = IndicatorSerializer
+
+    def get(self, request):
+        type = "Run"
+        ## Get the tokens from file to connect to Strava
+        stravaApi = _api.StravaApi()
+        data = stravaApi.GetActivity(type)
+        return Response(data, status=status.HTTP_201_CREATED)
+
+class ActivityDistanceView(GenericAPIView):
+    serializer_class = IndicatorSerializer
+
+    def get(self, request):
+        distance = 5000
+        ## Get the tokens from file to connect to Strava
+        stravaApi = _api.StravaApi()
+        data = stravaApi.GetByDistance(distance)
+        return Response(data, status=status.HTTP_201_CREATED)
+
+
 class AuthenticationView(GenericAPIView):
     serializer_class = AuthenticationSerializer
 
