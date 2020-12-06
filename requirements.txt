@@ -7,13 +7,7 @@ gunicorn
 whitenoise
 django-heroku
 requests
-json
 pandas
-time
-os
-time
 webbrowser
-sys
 selenium
-time
 re
