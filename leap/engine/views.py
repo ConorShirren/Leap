@@ -6,23 +6,54 @@ import requests
 from datetime import datetime
 # Import DatasetUtils
 from .utils import datasetutils as utils
+from .utils import api as _api
 # Create your views here.
-from .serializers import IndicatorSerializer
+from .serializers import IndicatorSerializer, AuthenticationSerializer
 
 
-class IndicatorView(GenericAPIView):
+
+class ActivitiesView(GenericAPIView):
     serializer_class = IndicatorSerializer
 
     def get(self, request):
-        serializer = IndicatorSerializer(data=request.data)
-        if serializer.is_valid():
-            print('true')
-        period = int(request.GET.get('period'))
-        symbol = request.GET.get('symbol')
-        limit = request.GET.get('limit')
-        interval = request.GET.get('interval')
-        indicator = request.GET.get('indicator')
-        data_set_utils = utils.DataSetUtils(interval, limit, period, symbol)
-        data = data_set_utils.get_indicator(indicator)
+        ## Get the tokens from file to connect to Strava
+        stravaApi = _api.StravaApi()
+        data = stravaApi.GetActivities()
         return Response(data, status=status.HTTP_201_CREATED)
+
+class ActivityView(GenericAPIView):
+    serializer_class = IndicatorSerializer
+
+    def get(self, request):
+        # type = "Run"
+        type = request.GET.get('Activity')
+        ## Get the tokens from file to connect to Strava
+        stravaApi = _api.StravaApi()
+        data = stravaApi.GetActivity(type)
+        return Response(data, status=status.HTTP_201_CREATED)
+
+class ActivityDistanceView(GenericAPIView):
+    serializer_class = IndicatorSerializer
+
+    def get(self, request):
+        distance = 5000
+        ## Get the tokens from file to connect to Strava
+        stravaApi = _api.StravaApi()
+        data = stravaApi.GetByDistance(distance)
+        return Response(data, status=status.HTTP_201_CREATED)
+
+
+class AuthenticationView(GenericAPIView):
+    serializer_class = AuthenticationSerializer
+
+    def post(self, request):
+        serializer = AuthenticationSerializer(data=request.data)
+
+        data = request.data
+        email = data.get('email', '')
+        password = data.get('password', '')
+        ## Get the tokens from file to connect to Strava
+        stravaApi = _api.StravaApi()
+        user = stravaApi.AuthenticateApi(email,password)
+        return Response("success", status=status.HTTP_201_CREATED)
 

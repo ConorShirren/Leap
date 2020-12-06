@@ -7,3 +7,7 @@ class Indicator(models.Model):
     interval = models.CharField(max_length=255, blank=False, default='')
     period = models.IntegerField(default=14)
     symbol = models.CharField(max_length=255, blank=False, default='')
+
+class Auth(models.Model):
+    email = models.CharField(max_length=65, blank=False, default='')
+    password = models.CharField(max_length=255, blank=False, default='')

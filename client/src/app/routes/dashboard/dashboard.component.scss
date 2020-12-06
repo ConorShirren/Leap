@@ -1,0 +1,63 @@
+.stats-cards {
+  .mat-card {
+    overflow: hidden;
+    
+  }
+}
+
+.wrapper, html, body {
+  height: 100%;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-raised-button.mat-green {
+  background-color: #589636;//06a94d;
+  color: white;
+}
+
+.mat-raised-button.mat-red {
+  background-color: #B2022F;
+  color: white;
+}
+
+.material-icons {
+  vertical-align: middle;
+}
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+.tcontainer{
+  width: 80%;
+  overflow: hidden;
+}
+.ticker-wrap {
+  width: 80%;
+  padding-left: 100%;
+}
+.ticker-move {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 3000s;
+}
+.ticker-move:hover{
+  animation-play-state: paused;
+}
+.ticker-item{
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 12px;
+}
