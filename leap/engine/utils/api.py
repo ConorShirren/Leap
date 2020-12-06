@@ -127,9 +127,9 @@ class StravaApi:
             for x in range(len(r)):
                 activities.loc[x + (page-1)*200,'start_date_local'] = r[x]['start_date_local']
                 activities.loc[x + (page-1)*200, 'type'] = r[x]['type']
-                activities.loc[x + (page-1)*200, 'distance'] = r[x]['distance']
-                activities.loc[x + (page-1)*200, 'elapsed_time'] = r[x]['elapsed_time']
-                activities.loc[x + (page-1)*200, 'average_speed'] = r[x]['average_speed']
+                activities.loc[x + (page-1)*200, 'distance'] = r[x]['distance']/1000
+                activities.loc[x + (page-1)*200, 'elapsed_time'] = r[x]['elapsed_time']/60
+                activities.loc[x + (page-1)*200, 'average_speed'] = (1/r[x]['average_speed'])*1000/60
                 activities.loc[x + (page-1)*200, 'kudos_count'] = r[x]['kudos_count']
                 activities.loc[x + (page-1)*200, 'total_elevation_gain'] = r[x]['total_elevation_gain']
         # increment page

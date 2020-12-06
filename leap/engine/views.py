@@ -25,7 +25,8 @@ class ActivityView(GenericAPIView):
     serializer_class = IndicatorSerializer
 
     def get(self, request):
-        type = "Run"
+        # type = "Run"
+        type = request.GET.get('Activity')
         ## Get the tokens from file to connect to Strava
         stravaApi = _api.StravaApi()
         data = stravaApi.GetActivity(type)

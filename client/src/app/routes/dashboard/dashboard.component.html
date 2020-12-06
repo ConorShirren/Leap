@@ -1,6 +1,7 @@
 <ngx-spinner bdColor="rgba(156,121,215,0.4)" size="large" color="#fff" type="square-jelly-box" fullScreen="false">
-    <p style="font-size: 25px; color: white; font-weight: bolder">Running Analysis Engine...</p>
+    <p style="font-size: 25px; color: white; font-weight: bolder">Loading...</p>
 </ngx-spinner>
+
 <div *ngIf="!this.loggedIn">
     <mat-card>
         <div style="text-align: center">
@@ -23,16 +24,78 @@
 </div>
 
 <div *ngIf="this.loggedIn">
-    <mat-card>
-        <canvas
-            baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [chartType]="barChartType"
-            [height]="350"
-        >
-        </canvas>
-    </mat-card>
-    
+    <div fxflex fxLayout="column" fxLayoutAlign="center space-between" fxLayoutGap="20px" style="margin-bottom: 5px">
+        <div fxFlex="50">
+            <div
+                fxflex
+                fxLayout="row"
+                fxLayoutAlign="start end"
+                fxLayoutGap="20px"
+                style="margin-bottom: 5px"
+            >
+                <div fxFlex="25">
+                    <mat-card>
+                        <canvas
+                            baseChart
+                            [datasets]="barChartData"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [chartType]="barChartType"
+                            [height]="350"
+                        >
+                        </canvas>
+                    </mat-card>
+                </div>
+                <div fxFlex="75">
+                    <mat-card>
+                        <canvas
+                            baseChart
+                            [datasets]="barChartData"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [chartType]="barChartType"
+                            [height]="350"
+                        >
+                        </canvas>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+
+        <div fxFlex="30">
+            <div
+                fxflex
+                fxLayout="row"
+                fxLayoutAlign="start end"
+                fxLayoutGap="20px"
+                style="margin-bottom: 5px"
+            >
+                <div fxFlex="30">
+                    <mat-card>
+                        <canvas
+                            baseChart
+                            [datasets]="pieChartData"
+                            [chartType]="pieChartType"
+                            [labels]="pieChartLabels"
+                            [height]="200"
+                        >
+                        </canvas>
+                    </mat-card>
+                </div>
+                <div fxFlex="70">
+                    <mat-card>
+                        <canvas
+                            baseChart
+                            [datasets]="activityData"
+                            [labels]="activityLabels"
+                            [options]="barChartOptions"
+                            [chartType]="barChartType"
+                            [height]="350"
+                        >
+                        </canvas>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

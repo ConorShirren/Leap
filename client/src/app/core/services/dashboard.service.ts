@@ -16,9 +16,11 @@ export class DashboardService {
         return this.http.get(`${this._routePrefix}activities`);
     }
 
+    getActivity(payload): Observable<any> {
+        return this.http.get(`${this._routePrefix}activity/type`, { params: payload });
+    }
+
     authenticate(data: any): Observable<any> {
         return this.http.post(`${this._routePrefix}authenticate`, data);
     }
-
-
 }

@@ -5,15 +5,15 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 
-
 interface Activities {
     start_date_local: string[];
     type: string[];
     distance: number[];
     elapsed_time: number[];
+    average_speed: number[];
+    kudos_count: number[];
     total_elevation_gain: number[];
 }
-
 
 @Component({
     selector: 'app-dashboard',
@@ -22,12 +22,19 @@ interface Activities {
 })
 export class DashboardComponent implements OnInit {
     public activities: Activities;
+    public activity: Activities;
     public hide: boolean;
     public email: string;
     public password: string;
     public loggedIn: boolean;
-
-
+    public barChartType = 'line';
+    public pieChartType = 'pie';
+    public barChartLabels = [];
+    public pieChartLabels = [];
+    public barChartData = [];
+    public pieChartData = [];
+    public activityLabels = [];
+    public activityData = [];
     //Chart.js
     public barChartOptions = {
         scaleShowVerticalLines: true,
@@ -44,21 +51,21 @@ export class DashboardComponent implements OnInit {
             yAxes: [
                 {
                     ticks: {
-                        fontColor: '#FFFFFF'
+                        fontColor: '#FFFFFF',
                     },
                 },
             ],
         },
-        elements: {
-            point: {
-                radius: 0,
-            },
-        },
+        // elements: {
+        //     point: {
+        //         radius: 0,
+        //     },
+        // },
         legend: {
             display: true,
             labels: {
-                fontColor: '#FFFFFF'
-            }
+                fontColor: '#FFFFFF',
+            },
         },
 
         tooltips: {
@@ -66,23 +73,15 @@ export class DashboardComponent implements OnInit {
             intersect: true,
         },
     };
-    public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-    public barChartType = 'line';
-    public barChartData = [
-        { data: [65, 59, 80, 81, 56, 55, 40], label: 'DI+', fill: false },
-        { data: [48, 48, 23, 14, 46, 24, 50], label: 'DI-', fill: false },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'ADX', fill: false },
-    ];
-
 
     constructor(private dashboardService: DashboardService, private spinner: NgxSpinnerService) {
         this.activities = {} as Activities;
+        this.activity = {} as Activities;
         this.hide = true;
         this.loggedIn = false;
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
     authenticate(): void {
         const payload = {
             email: this.email,
@@ -90,10 +89,11 @@ export class DashboardComponent implements OnInit {
         };
         this.dashboardService.authenticate(payload).subscribe(
             (data) => {
-                if(data === 'success') {
+                if (data === 'success') {
                     this.loggedIn = true;
                 }
                 this.getActivities();
+                this.getActivity('Run');
             },
             (error) => {}
         );
@@ -102,16 +102,37 @@ export class DashboardComponent implements OnInit {
         this.dashboardService.getActivities().subscribe(
             (data) => {
                 this.activities = data;
-                console.log('data', data);
+                this.pieChartData = [{ data: [350, 400, 900], label: 'Activities' }];
+                this.pieChartLabels = ['Walk', 'Run', 'Cycle'];
 
-                this.barChartLabels = [...this.activities.start_date_local];
+                setTimeout(() => {
+                    this.spinner.hide();
+                }, 1000);
+            },
+            (error) => {
+                console.log(error);
+                this.spinner.hide();
+            }
+        );
+    }
+
+    getActivity(type): void {
+        const payload = {
+            Activity: type,
+        };
+        this.dashboardService.getActivity(payload).subscribe(
+            (data) => {
+                this.activity = data;
+                this.barChartLabels = [...this.activity.start_date_local];
                 this.barChartData = [
-                    { data: this.activities.distance, label: 'Distance', fill: false },
-                    { data: this.activities.elapsed_time, label: 'Time', fill: false },
-                    { data: this.activities.total_elevation_gain, label: 'Elevation Gain', fill: false },
+                    { data: this.activity.distance, label: 'Distance', fill: false }
                 ];
-
-
+                this.activityLabels = [...this.activity.start_date_local];
+                this.activityData = [
+                    // { data: this.activity.distance, label: 'Distance', fill: false },
+                    { data: this.activity.average_speed, label: 'Pace', fill: false },
+                    // { data: this.activities.total_elevation_gain, label: 'Elevation Gain', fill: false },
+                ];
                 setTimeout(() => {
                     this.spinner.hide();
                 }, 1000);
