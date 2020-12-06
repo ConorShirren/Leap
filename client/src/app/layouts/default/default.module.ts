@@ -13,7 +13,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/core/services/dashboard.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HighchartsChartModule } from 'highcharts-angular';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
@@ -40,7 +39,6 @@ import { ChartsModule } from 'ng2-charts';
     MatTableModule,
     MatButtonModule,
     MatFormFieldModule,
-    HighchartsChartModule,
     MatIconModule,
     MatSnackBarModule,
     MatSelectModule,
