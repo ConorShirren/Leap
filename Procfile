@@ -1,1 +1,4 @@
- web: gunicorn leap.wsgi --log-file -
+release: python manage.py makemigrations --no-input
+release: python manage.py migrate --no-input
+
+web: gunicorn leap.wsgi
