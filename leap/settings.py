@@ -66,7 +66,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'https://leap-pa.herokuapp.com/'
+    'https://leap-pa.herokuapp.com/',
     'http://localhost:8080',
     'http://localhost:8081',
 )
