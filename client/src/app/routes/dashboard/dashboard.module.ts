@@ -13,7 +13,6 @@ import { MatMenuModule} from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -29,14 +28,12 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatMenuModule,
     MatListModule,
     RouterModule,
-    HighchartsChartModule,
     MatInputModule,
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
     FormsModule,
     MatButtonModule,
-    HighchartsChartModule
   ],
   exports: [
     DashboardComponent,
