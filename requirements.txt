@@ -9,4 +9,3 @@ django-heroku
 requests
 pandas
 selenium
-re
