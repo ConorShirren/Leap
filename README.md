@@ -15,49 +15,50 @@ For more information on the Strava APIs available, see [Strava Developers Docume
 ## :closed_book: Table of Contents
 
 - [Requirements](#hammer_and_wrench-requirements)
-- [Dataset](#open_file_folder-dataset)
+- [Strava API & Analysis Engine](#open_file_folder-engine)
+- [Application in Action](#fire-application)
 - [Credits](#computer-credits)
 
 ---
 
 ## :hammer_and_wrench: Requirements
 
-First of all you will need to make sure that you have Java JDK 11 installed, as it is
-required by `torchserve` while deploying the model since it is exposing the APIs using Java.
+First of all you will need to make sure that you have Python 3, pip and npm installed, as it is
+required by `Django` while using this application to integrate with the Strava APIs.
 
 ```bash
-sudo apt install --no-install-recommends -y openjdk-11-jre-headless
+pip3 install -r requirements.txt
 ```
 
-Then you can proceed with the installation of the PyTorch Python packages required for 
-both training and serving the model. 
+Then you can proceed with the installation of the installation of required node modules for our Angular client
 
 ```bash
-pip install torch torchvision -f https://download.pytorch.org/whl/torch_stable.html
-pip install torchserve torch-model-archiver
+cd client
+npm update
+npm install
 ```
 
-If you have any problems regarding the PyTorch installation, visit 
-[PyTorch - Get Started Locally](https://pytorch.org/get-started/locally/)
+If you have any problems regarding this installation, please see 
+[Django](https://docs.djangoproject.com/en/3.1/) & [Angular](https://angular.io/docs) Documentation.
 
 ---
 
-## :open_file_folder: Dataset
+## :open_file_folder: Engine
 
-The dataset that is going to be used to train the image classification model is 
-[Food101](https://www.tensorflow.org/datasets/catalog/food101), but not the complete version of it,
-just a slice of 10 classes, which is more or less the 10% of the dataset.
+Discuss the API
+Discuss the Auth Process
+Discuss Automating the Auth Process with Selenium 
 
-This dataset consists of 101 food categories, with 101'000 images. For each class, 250 manually 
-reviewed test images are provided as well as 750 training images. On purpose, the training images 
-were not cleaned, and thus still contain some amount of noise. This comes mostly in the form of 
-intense colors and sometimes wrong labels. All images were rescaled to have a maximum side length 
-of 512 pixels.
+---
 
-![](https://raw.githubusercontent.com/alvarobartt/serving-pytorch-models/master/images/data.jpg)
+## :fire: Application
 
+Screenshots of the Application in Action
+Need to wait until Finished
 ---
 
 
 
 ## :computer: Credits
+Credit: Conor Shirren
+---
