@@ -1,11 +1,9 @@
 # Leap - Performance Analysis Engine
 
-## Data Visualisation Application base on Strava APIs :fire: 
+__Data Visualisation Application base on Strava APIs :fire:__
 
 ![project](/assets/project.png)
 
-
-__An Application for Activity Performance Analysis in Strava__.
 
 A Full Stack Web application built on Django Rest Framework and Angular which utilizes Stravas APIs to provide visualization of performance analysis in each activity recorded on your Strava Account. This projects uses the [Swagger API Playground](https://developers.strava.com/playground/) as backbone, which allows the user to obtain activity data on authentication
 __WARNING__: The APIs used in this project does not allow the ability to create activities.
