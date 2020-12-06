@@ -39,7 +39,6 @@ import { ChartsModule } from 'ng2-charts';
     MatTableModule,
     MatButtonModule,
     MatFormFieldModule,
-    HighchartsChartModule,
     MatIconModule,
     MatSnackBarModule,
     MatSelectModule,
