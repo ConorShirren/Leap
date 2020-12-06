@@ -2,7 +2,8 @@
 
 ## Data Visualisation Application base on Strava APIs :fire: 
 
-![PyTorch Logo](https://miro.medium.com/max/1024/1*KKADWARPMxHb-WMxCgW_xA.png)
+![project](/assets/project.png)
+
 
 __An Application for Activity Performance Analysis in Strava__.
 
