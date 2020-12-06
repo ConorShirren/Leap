@@ -55,6 +55,7 @@ Discuss Automating the Auth Process with Selenium
 
 Screenshots of the Application in Action
 Need to wait until Finished
+
 ---
 
 
