@@ -102,7 +102,7 @@ export class DashboardComponent implements OnInit {
         this.dashboardService.getActivities().subscribe(
             (data) => {
                 this.activities = data;
-                this.pieChartData = [{ data: [350, 400, 900], label: 'Activities' }];
+                this.pieChartData = [{ data: [25, 18, 3], label: 'Activities' }];
                 this.pieChartLabels = ['Walk', 'Run', 'Cycle'];
 
                 setTimeout(() => {

@@ -1,6 +1,3 @@
-<ngx-spinner bdColor="rgba(156,121,215,0.4)" size="large" color="#fff" type="square-jelly-box" fullScreen="false">
-    <p style="font-size: 25px; color: white; font-weight: bolder">Loading...</p>
-</ngx-spinner>
 
 <div *ngIf="!this.loggedIn">
     <mat-card>
@@ -35,16 +32,12 @@
             >
                 <div fxFlex="25">
                     <mat-card>
-                        <canvas
-                            baseChart
-                            [datasets]="barChartData"
-                            [labels]="barChartLabels"
-                            [options]="barChartOptions"
-                            [chartType]="barChartType"
-                            [height]="350"
-                        >
-                        </canvas>
-                    </mat-card>
+                        <p>Interesting Stats</p>
+                        <p>Latest Activity</p>
+                        <p>Run</p>
+                        <p>10km</p>
+                        <p>4.57 min/km</p>
+                    </mat-card>  
                 </div>
                 <div fxFlex="75">
                     <mat-card>
