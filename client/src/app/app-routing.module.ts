@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http/http';
 import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './routes/dashboard/dashboard.component';
 

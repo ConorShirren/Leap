@@ -17,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
