@@ -5,7 +5,7 @@ from rest_framework import status
 import requests
 from datetime import datetime
 # Import DatasetUtils
-from .utils import datasetutils as utils
+from .utils import kpm as _kpm
 from .utils import api as _api
 # Create your views here.
 from .serializers import IndicatorSerializer, AuthenticationSerializer
@@ -30,6 +30,15 @@ class ActivityView(GenericAPIView):
         ## Get the tokens from file to connect to Strava
         stravaApi = _api.StravaApi()
         data = stravaApi.GetActivity(type)
+        return Response(data, status=status.HTTP_201_CREATED)
+
+class KpmView(GenericAPIView):
+    serializer_class = IndicatorSerializer
+
+    def get(self, request):
+        ## Get the tokens from file to connect to Strava
+        kpm = _kpm.KeyPerformanceMetrics()
+        data = kpm.getKPM()
         return Response(data, status=status.HTTP_201_CREATED)
 
 class ActivityDistanceView(GenericAPIView):

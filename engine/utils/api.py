@@ -110,7 +110,8 @@ class StravaApi:
                 "elapsed_time",
                 "average_speed",
                 "total_elevation_gain",
-                "kudos_count"
+                "kudos_count",
+                "max_heartrate"
             ]
         )
         while True:
@@ -127,11 +128,18 @@ class StravaApi:
             for x in range(len(r)):
                 activities.loc[x + (page-1)*200,'start_date_local'] = r[x]['start_date_local']
                 activities.loc[x + (page-1)*200, 'type'] = r[x]['type']
-                activities.loc[x + (page-1)*200, 'distance'] = r[x]['distance']/1000
+                activities.loc[x + (page-1)*200, 'distance'] = r[x]['distance'] # /1000
                 activities.loc[x + (page-1)*200, 'elapsed_time'] = r[x]['elapsed_time']/60
-                activities.loc[x + (page-1)*200, 'average_speed'] = (1/r[x]['average_speed'])*1000/60
+                activities.loc[x + (page-1)*200, 'average_speed'] = r[x]['average_speed'] # (1/r[x]['average_speed'])*1000/60
                 activities.loc[x + (page-1)*200, 'kudos_count'] = r[x]['kudos_count']
                 activities.loc[x + (page-1)*200, 'total_elevation_gain'] = r[x]['total_elevation_gain']
+                if (r[x]['has_heartrate'] == True):
+                    activities.loc[x + (page-1)*200, 'max_heartrate'] = r[x]['max_heartrate']
+                    activities.loc[x + (page-1)*200, 'average_heartrate'] = r[x]['average_heartrate']
+                else:
+                    activities.loc[x + (page-1)*200, 'max_heartrate'] = 0
+                    activities.loc[x + (page-1)*200, 'average_heartrate'] = 0
+
         # increment page
             page += 1
         activities.to_csv('strava_activities.csv')
