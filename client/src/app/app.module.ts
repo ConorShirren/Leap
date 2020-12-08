@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DefaultModule } from './layouts/default/default.module';
+import { DashboardModule } from './routes/dashboard/dashboard.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -35,6 +36,7 @@ import { ChartsModule } from 'ng2-charts';
         MatIconModule,
         MatInputModule,
         DefaultModule,
+        DashboardModule,
         MatFormFieldModule,
         MatInputModule,
         MatDialogModule,

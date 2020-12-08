@@ -25,7 +25,6 @@ import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     DefaultComponent,
-    DashboardComponent,
     ],
   imports: [
     CommonModule,

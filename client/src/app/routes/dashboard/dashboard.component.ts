@@ -4,6 +4,7 @@ import { DashboardService } from '../../core/services/dashboard.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { CommonModule } from '@angular/common';
 
 interface Activities {
     start_date_local: string[];
@@ -13,6 +14,8 @@ interface Activities {
     average_speed: number[];
     kudos_count: number[];
     total_elevation_gain: number[];
+    average_heartrate: number[];
+    max_heartrate: number [];
 }
 
 @Component({
