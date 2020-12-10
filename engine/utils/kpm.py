@@ -1,9 +1,4 @@
 from .api import StravaApi as _api
-# ## Get the tokens from file to connect to Strava
-# stravaApi = _api.StravaApi()
-# data = stravaApi.GetActivities()
-# print(data)
-
 
 
 # http://www.strava.com/oauth/authorize?client_id=57478&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=profile:read_all,activity:read_all
@@ -22,13 +17,13 @@ class KeyPerformanceMetrics:
         pr10k = data[(data['distance'] >= 10000) & (data['distance'] <= 10050) & (data['type'] == "Run")].sort_values(by=['elapsed_time']).iloc[0]
         pr2k = data[(data['distance'] >= 2000) & (data['distance'] <= 2050) & (data['type'] == "Run")].sort_values(by=['elapsed_time']).iloc[0]
         pr8k = data[(data['distance'] >= 8000) & (data['distance'] <= 8050) & (data['type'] == "Run")].sort_values(by=['elapsed_time']).iloc[0]
-
+        breakdown = data['type'].value_counts().rename_axis('activity').reset_index(name='counts')
         # Breakdown of each exercise type for pie chart
-
         return {
             "latest_run":latestRun,
             "pr5k":pr5k,
             "pr10k":pr10k,
             "pr2k":pr2k,
-            "pr8k":pr8k
+            "pr8k":pr8k,
+            "breakdown": breakdown
         }

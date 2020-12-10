@@ -45,7 +45,7 @@ class ActivityDistanceView(GenericAPIView):
     serializer_class = IndicatorSerializer
 
     def get(self, request):
-        distance = 5000
+        distance = request.GET.get('distance')
         ## Get the tokens from file to connect to Strava
         stravaApi = _api.StravaApi()
         data = stravaApi.GetByDistance(distance)

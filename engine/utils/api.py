@@ -153,6 +153,6 @@ class StravaApi:
         return activity
 
     def GetByDistance(self, distance ):
-        activities = self.GetActivities()
-        activity = activities[activities['distance'] >= distance]
-        return activity
+        data = self.GetActivities()
+        distances = data[(data['distance'] >= 5000) & (data['distance'] <= 5050) & (data['type'] == "Run")]
+        return distances

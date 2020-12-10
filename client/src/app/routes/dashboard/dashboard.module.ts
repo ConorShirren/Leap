@@ -41,10 +41,10 @@ import { DashboardService } from 'src/app/core/services/dashboard.service';
     ChartsModule
   ],
   exports: [
-    DashboardComponent,
+    DashboardComponent, 
   ],
   providers: [
-    DashboardService
+    DashboardService, 
   ]
 })
 export class DashboardModule { }
