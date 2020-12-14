@@ -49,6 +49,7 @@ This application had been designed using DRF (Django Rest Framework), where I us
 ![swagger](/assets/swagger.png)
 The Application requires the user to enter their Strava Credentials in order to authorize the Strava Api Playground for use. This project uses selenium as a browser automtor, since strava requires manual interventions to authorize tokens.
 ![login](/assets/login.png)
+
 ---
 
 ## :fire: Application
@@ -62,4 +63,5 @@ Once Logged in you will be able to view your latest activity, and your 2km, 5km 
 
 ## :computer: Credits
 Credit: Conor Shirren
+
 ---
