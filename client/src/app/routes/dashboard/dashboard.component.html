@@ -19,72 +19,111 @@
     </mat-card>
 </div>
 
-<div *ngIf="this.loggedIn">
+<div style="text-align: center" *ngIf="this.loggedIn">
     <div fxflex fxLayout="column" fxLayoutAlign="center space-between" fxLayoutGap="20px" style="margin-bottom: 5px">
         <div fxFlex="50">
-            <div
-                fxflex
-                fxLayout="row"
-                fxLayoutAlign="start end"
-                fxLayoutGap="20px"
-                style="margin-bottom: 5px"
-            >
+            <div fxflex fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="20px" style="margin-bottom: 5px">
                 <div fxFlex="25">
                     <mat-card>
-                        
-                        <p>Latest Run </p>
-                        <p>Elapsed Time: {{floor(this.latestRun[3])}}:{{this.latestRun[3]%60}} </p>
-                        <p>Average Pace: {{pace(this.latestRun[4])}} min/km </p>
-                        <p>Distance: {{this.latestRun[2]/1000}}</p>
-                        <p>Elevation Gain: {{this.latestRun[5]}} </p>
-                        <p>Average HR: {{this.latestRun[8]}} </p>
-                        <p>Max HR: {{this.latestRun[7]}} </p>
+                        <h2 class="mat-display-1">Latest Activity 🌟</h2>
+                        <div fxflex fxLayout="column" fxLayoutAlign="center space-between" fxLayoutGap="25px">
+                            <div fxFlex="50">
+                                <div fxflex fxLayout="row" fxLayoutAlign="center space-between" fxLayoutGap="10px">
+                                    <div fxFlex="33">
+                                        <b>Time: </b>{{ floor(this.latestRun[3]) }}:{{ this.latestRun[3] % 60 }}
+                                    </div>
+                                    <div fxFlex="33"><b>Pace: </b>{{ pace(this.latestRun[4]) }}min/km</div>
+                                    <div fxFlex="33"><b>Distance: </b> {{ round(this.latestRun[2] / 1000)}}km</div>
+                                </div>
+                            </div>
+                            <div fxFlex="50">
+                                <div fxflex fxLayout="row" fxLayoutAlign="center space-between" fxLayoutGap="5px">
+                                    <div fxFlex="33"><b>Gain: </b> {{ this.latestRun[5] }}</div>
+                                    <div fxFlex="33"><b>Avg. HR: </b> {{ this.latestRun[8] }}</div>
+                                    <div fxFlex="33"><b>Max HR: </b> {{ this.latestRun[7] }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                     </mat-card>
                 </div>
                 <div fxFlex="25">
                     <mat-card>
-                        <p>2km PR </p>
-                        <p>Elapsed Time: {{floor(this.pr2k[3])}}:{{this.pr2k[3]%60}}</p>
-                        <p>Average Pace: {{pace(this.pr2k[4])}} min/km </p>
-                        <p>Distance: {{this.pr2k[2]/1000}}</p>
-                        <p>Elevation Gain: {{this.pr2k[5]}} </p>
-                        <p>Average HR: {{this.pr2k[8]}} </p>
-                        <p>Max HR: {{this.pr2k[7]}} </p>
+                        <h2 class="mat-display-1">2km PR 🏆</h2>
+                        <div fxflex fxLayout="column" fxLayoutAlign="center space-between" fxLayoutGap="25px">
+                            <div fxFlex="50">
+                                <div fxflex fxLayout="row" fxLayoutAlign="center space-between" fxLayoutGap="10px">
+                                    <div fxFlex="33">
+                                        <b>Time: </b>{{ floor(this.pr2k[3]) }}:{{ this.pr2k[3] % 60 }}
+                                    </div>
+                                    <div fxFlex="33"><b>Pace: </b>{{ pace(this.pr2k[4]) }}min/km</div>
+                                    <div fxFlex="33"><b>Distance: </b> {{ round(this.pr2k[2] / 1000)}}km</div>
+                                </div>
+                            </div>
+                            <div fxFlex="50">
+                                <div fxflex fxLayout="row" fxLayoutAlign="center space-between" fxLayoutGap="5px">
+                                    <div fxFlex="33"><b>Gain: </b> {{ this.pr2k[5] }}</div>
+                                    <div fxFlex="33"><b>Avg. HR: </b> {{ this.pr2k[8] }}</div>
+                                    <div fxFlex="33"><b>Max HR: </b> {{ this.pr2k[7] }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                     </mat-card>
                 </div>
                 <div fxFlex="25">
                     <mat-card>
-                        <p>5km PR </p>
-                        <p>Elapsed Time: {{floor(this.pr5k[3])}}:{{this.pr5k[3]%60}} </p>
-                        <p>Average Pace: {{pace(this.pr5k[4])}} min/km </p>
-                        <p>Distance: {{this.pr5k[2]/1000}}</p>
-                        <p>Elevation Gain: {{this.pr5k[5]}} </p>
-                        <p>Average HR: {{this.pr5k[8]}} </p>
-                        <p>Max HR: {{this.pr5k[7]}} </p>
+                        <h2 class="mat-display-1">5km PR 🏆</h2>
+                        <div fxflex fxLayout="column" fxLayoutAlign="center space-between" fxLayoutGap="25px">
+                            <div fxFlex="50">
+                                <div fxflex fxLayout="row" fxLayoutAlign="center space-between" fxLayoutGap="10px">
+                                    <div fxFlex="33">
+                                        <b>Time: </b>{{ floor(this.pr5k[3]) }}:{{ this.pr5k[3] % 60 }}
+                                    </div>
+                                    <div fxFlex="33"><b>Pace: </b>{{ pace(this.pr5k[4]) }}min/km</div>
+                                    <div fxFlex="33"><b>Distance: </b> {{ round(this.pr5k[2] / 1000)}}km</div>
+                                </div>
+                            </div>
+                            <div fxFlex="50">
+                                <div fxflex fxLayout="row" fxLayoutAlign="center space-between" fxLayoutGap="5px">
+                                    <div fxFlex="33"><b>Gain: </b> {{ this.pr5k[5] }}</div>
+                                    <div fxFlex="33"><b>Avg. HR: </b> {{ this.pr5k[8] }}</div>
+                                    <div fxFlex="33"><b>Max HR: </b> {{ this.pr5k[7] }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                     </mat-card>
                 </div>
                 <div fxFlex="25">
                     <mat-card>
-                        <p>10km PR </p>
-                        <p>Elapsed Time: {{floor(this.pr10k[3])}}:{{this.pr10k[3]%60}}</p>
-                        <p>Average Pace: {{pace(this.pr10k[4])}} min/km </p>
-                        <p>Distance: {{this.pr10k[2]/1000}}</p>
-                        <p>Elevation Gain: {{this.pr10k[5]}} </p>
-                        <p>Average HR: {{this.pr10k[8]}} </p>
-                        <p>Max HR: {{this.pr10k[7]}} </p>
+                        <h2 class="mat-display-1">10km PR 🏆</h2>
+                        <div fxflex fxLayout="column" fxLayoutAlign="center space-between" fxLayoutGap="25px">
+                            <div fxFlex="50">
+                                <div fxflex fxLayout="row" fxLayoutAlign="center space-between" fxLayoutGap="10px">
+                                    <div fxFlex="33">
+                                        <b>Time: </b>{{ floor(this.pr10k[3]) }}:{{ this.pr10k[3] % 60 }}
+                                    </div>
+                                    <div fxFlex="33"><b>Pace: </b>{{ pace(this.pr10k[4]) }}min/km</div>
+                                    <div fxFlex="33"><b>Distance: </b> {{ round(this.pr10k[2] / 1000)}}km</div>
+                                </div>
+                            </div>
+                            <div fxFlex="50">
+                                <div fxflex fxLayout="row" fxLayoutAlign="center space-between" fxLayoutGap="5px">
+                                    <div fxFlex="33"><b>Gain: </b> {{ this.pr10k[5] }}</div>
+                                    <div fxFlex="33"><b>Avg. HR: </b> {{ this.pr10k[8] }}</div>
+                                    <div fxFlex="33"><b>Max HR: </b> {{ this.pr10k[7] }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                     </mat-card>
                 </div>
             </div>
         </div>
 
         <div fxFlex="30">
-            <div
-                fxflex
-                fxLayout="row"
-                fxLayoutAlign="start end"
-                fxLayoutGap="20px"
-                style="margin-bottom: 5px"
-            >
+            <div fxflex fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="20px" style="margin-bottom: 5px">
                 <div fxFlex="30">
                     <mat-card>
                         <canvas

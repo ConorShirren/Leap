@@ -38,7 +38,7 @@ class StravaApi:
         authorization_request = Request(
             'GET', base_address, params=params).prepare()
         options = webdriver.ChromeOptions()
-        options.headless = True
+        options.headless = False
         options.add_argument('--ignore-certificate-errors')
         options.add_argument("--test-type")
         driver = webdriver.Chrome(

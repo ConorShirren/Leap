@@ -234,5 +234,9 @@ export class DashboardComponent implements OnInit {
         return min + ':' + sec;
     }
 
+    round(num: number): number {
+        return Math.round(num * 100) / 100
+    }
+
     ngOnDestroy() {}
 }
