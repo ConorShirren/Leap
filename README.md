@@ -45,18 +45,15 @@ If you have any problems regarding this installation, please see
 
 ## :open_file_folder: Engine
 
-Discuss the API
-Discuss the Auth Process
-Discuss Automating the Auth Process with Selenium 
-
+This application had been designed using DRF (Django Rest Framework), where I use Swagger to Document and Test my APIs.
+![swagger](/assets/swagger.png)
+The Application requires the user to enter their Strava Credentials in order to authorize the Strava Api Playground for use. This project uses selenium as a browser automtor, since strava requires manual interventions to authorize tokens.
+![login](/assets/login.png)
 ---
 
 ## :fire: Application
-
-![swagger](/assets/swagger.png)
-
-![login](/assets/login.png)
-
+Thr front end uses Angular as its framework, where I use angular-material to design my UI.
+Once Logged in you will be able to view your latest activity, and your 2km, 5km and 10km Personal Bests! Along with some other key performance metrics like breakdown of activities, distances of runs, and average pace for 5km Run. I hope to add the ability to dynamically change the pace chart for different runs (i.e. 2km, 5km, 10km). Although for now, 5km is all I need for my analysis!
 ![dash](/assets/dash.png)
 
 ---
