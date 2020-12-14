@@ -1,7 +1,3 @@
-<ngx-spinner bdColor="rgba(156,121,215,0.4)" size="large" color="#fff" type="square-jelly-box" fullScreen="false">
-    <p style="font-size: 25px; color: white; font-weight: bolder">Loading...</p>
-</ngx-spinner>
-
 <div *ngIf="!this.loggedIn">
     <mat-card>
         <div style="text-align: center">
@@ -35,28 +31,47 @@
             >
                 <div fxFlex="25">
                     <mat-card>
-                        <canvas
-                            baseChart
-                            [datasets]="barChartData"
-                            [labels]="barChartLabels"
-                            [options]="barChartOptions"
-                            [chartType]="barChartType"
-                            [height]="350"
-                        >
-                        </canvas>
+                        
+                        <p>Latest Run </p>
+                        <p>Elapsed Time: {{floor(this.latestRun[3])}}:{{this.latestRun[3]%60}} </p>
+                        <p>Average Pace: {{pace(this.latestRun[4])}} min/km </p>
+                        <p>Distance: {{this.latestRun[2]/1000}}</p>
+                        <p>Elevation Gain: {{this.latestRun[5]}} </p>
+                        <p>Average HR: {{this.latestRun[8]}} </p>
+                        <p>Max HR: {{this.latestRun[7]}} </p>
                     </mat-card>
                 </div>
-                <div fxFlex="75">
+                <div fxFlex="25">
                     <mat-card>
-                        <canvas
-                            baseChart
-                            [datasets]="barChartData"
-                            [labels]="barChartLabels"
-                            [options]="barChartOptions"
-                            [chartType]="barChartType"
-                            [height]="350"
-                        >
-                        </canvas>
+                        <p>2km PR </p>
+                        <p>Elapsed Time: {{floor(this.pr2k[3])}}:{{this.pr2k[3]%60}}</p>
+                        <p>Average Pace: {{pace(this.pr2k[4])}} min/km </p>
+                        <p>Distance: {{this.pr2k[2]/1000}}</p>
+                        <p>Elevation Gain: {{this.pr2k[5]}} </p>
+                        <p>Average HR: {{this.pr2k[8]}} </p>
+                        <p>Max HR: {{this.pr2k[7]}} </p>
+                    </mat-card>
+                </div>
+                <div fxFlex="25">
+                    <mat-card>
+                        <p>5km PR </p>
+                        <p>Elapsed Time: {{floor(this.pr5k[3])}}:{{this.pr5k[3]%60}} </p>
+                        <p>Average Pace: {{pace(this.pr5k[4])}} min/km </p>
+                        <p>Distance: {{this.pr5k[2]/1000}}</p>
+                        <p>Elevation Gain: {{this.pr5k[5]}} </p>
+                        <p>Average HR: {{this.pr5k[8]}} </p>
+                        <p>Max HR: {{this.pr5k[7]}} </p>
+                    </mat-card>
+                </div>
+                <div fxFlex="25">
+                    <mat-card>
+                        <p>10km PR </p>
+                        <p>Elapsed Time: {{floor(this.pr10k[3])}}:{{this.pr10k[3]%60}}</p>
+                        <p>Average Pace: {{pace(this.pr10k[4])}} min/km </p>
+                        <p>Distance: {{this.pr10k[2]/1000}}</p>
+                        <p>Elevation Gain: {{this.pr10k[5]}} </p>
+                        <p>Average HR: {{this.pr10k[8]}} </p>
+                        <p>Max HR: {{this.pr10k[7]}} </p>
                     </mat-card>
                 </div>
             </div>
@@ -86,8 +101,8 @@
                     <mat-card>
                         <canvas
                             baseChart
-                            [datasets]="activityData"
-                            [labels]="activityLabels"
+                            [datasets]="barChartData"
+                            [labels]="barChartLabels"
                             [options]="barChartOptions"
                             [chartType]="barChartType"
                             [height]="350"
@@ -96,6 +111,19 @@
                     </mat-card>
                 </div>
             </div>
+        </div>
+        <div>
+            <mat-card>
+                <canvas
+                    baseChart
+                    [datasets]="distanceChartData"
+                    [labels]="distanceChartLabels"
+                    [options]="barChartOptions"
+                    [chartType]="barChartType"
+                    [height]="350"
+                >
+                </canvas>
+            </mat-card>
         </div>
     </div>
 </div>

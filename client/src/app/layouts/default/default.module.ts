@@ -18,14 +18,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
     DefaultComponent,
-    DashboardComponent,
     ],
   imports: [
     CommonModule,
