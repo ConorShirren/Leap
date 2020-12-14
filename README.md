@@ -53,8 +53,11 @@ Discuss Automating the Auth Process with Selenium
 
 ## :fire: Application
 
-Screenshots of the Application in Action
-Need to wait until Finished
+![swagger](/assets/swagger.png)
+
+![login](/assets/login.png)
+
+![dash](/assets/dash.png)
 
 ---
 
